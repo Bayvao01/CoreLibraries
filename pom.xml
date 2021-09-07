@@ -19,6 +19,11 @@
 		<servlet-api.version>4.0.1</servlet-api.version>
 		<spring.version>5.3.9</spring.version>
 		<spring-security.version>5.5.2</spring-security.version>
+		<spring-boot.version>2.5.4</spring-boot.version>
+		<spring-data-redis.version>2.5.4</spring-data-redis.version>
+		<jedis.version>3.7.0</jedis.version>
+		<commons-pool2.version>2.11.1</commons-pool2.version>
+		
 		<junit.version>4.13.2</junit.version>
 		<mockito-core.version>3.12.4</mockito-core.version>
 		<commons-validator.version>1.7</commons-validator.version>
@@ -34,6 +39,7 @@
 	<modules>
 		<module>exception-handler</module>
 		<module>validator</module>
+		<module>redis-caching</module>
 	</modules>
 
 
