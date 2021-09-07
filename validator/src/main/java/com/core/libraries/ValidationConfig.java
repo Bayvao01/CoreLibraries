@@ -4,6 +4,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author Bayvao Verma
+ *
+ */
 public class ValidationConfig {
 	private Map<String, List<String>> fieldMap = new HashMap<>();
 	private Map<String, List<String>> fieldValidationMap = new HashMap<>();

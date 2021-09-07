@@ -23,16 +23,24 @@ import com.core.libraries.FieldValidationError;
 import com.core.libraries.ValidationException;
 
 /**
+ * @author Bayvao Verma
+ *
+ */
+
+/**
  * Controller advice to translate the server side exception to client-friendly
  * JSON structures
  */
-
 @ControllerAdvice
 public class ExceptionTranslator {
 
 	static String LOG_ERROR = "Returning ErrorDTO due to: {}";
 	// static Logger logger = LoggerFactory.getLogger(ExceptionTranslator.class);
 
+	/**
+	 * @param ConcurrencyFailureException
+	 * @return CONCURRENCY_FAILURE_STATUS
+	 */
 	@ExceptionHandler(ConcurrencyFailureException.class)
 	@ResponseStatus(HttpStatus.EXPECTATION_FAILED)
 	@ResponseBody
@@ -40,6 +48,10 @@ public class ExceptionTranslator {
 		return new ErrorDTO(ErrorConstants.ERR_CONCURRENCY_FAILURE_STATUS, ErrorConstants.ERR_CONCURRENCY_FAILURE);
 	}
 
+	/**
+	 * @param HttpRequestMethodNotSupportedException
+	 * @return METHOD_NOT_SUPPORTED_STATUS
+	 */
 	@ExceptionHandler(HttpRequestMethodNotSupportedException.class)
 	@ResponseStatus(HttpStatus.EXPECTATION_FAILED)
 	@ResponseBody
@@ -47,6 +59,10 @@ public class ExceptionTranslator {
 		return new ErrorDTO(ErrorConstants.ERR_METHOD_NOT_SUPPORTED_STATUS, ErrorConstants.ERR_METHOD_NOT_SUPPORTED);
 	}
 
+	/**
+	 * @param MethodArgumentNotValidException
+	 * @return VALIDATION_STATUS
+	 */
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	@ResponseBody
@@ -57,6 +73,10 @@ public class ExceptionTranslator {
 				ErrorConstants.ERR_VALIDATION, fieldErrors);
 	}
 
+	/**
+	 * @param BindException
+	 * @return VALIDATION_STATUS
+	 */
 	@ExceptionHandler(BindException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	@ResponseBody
@@ -68,6 +88,10 @@ public class ExceptionTranslator {
 				ErrorConstants.ERR_VALIDATION, fieldErrors);
 	}
 
+	/**
+	 * @param AuthenticationException
+	 * @return UNAUTHORIZED_STATUS
+	 */
 	@ExceptionHandler(AuthenticationException.class)
 	@ResponseStatus(HttpStatus.UNAUTHORIZED)
 	@ResponseBody
@@ -75,6 +99,10 @@ public class ExceptionTranslator {
 		return new ErrorDTO(ErrorConstants.ERR_UNAUTHORIZED_STATUS, ex.getMessage(), ErrorConstants.ERR_UNAUTHORIZED);
 	}
 
+	/**
+	 * @param AccessDeniedException
+	 * @return ACCESS_DENIED_STATUS
+	 */
 	@ExceptionHandler(AccessDeniedException.class)
 	@ResponseStatus(HttpStatus.UNAUTHORIZED)
 	@ResponseBody
@@ -83,6 +111,10 @@ public class ExceptionTranslator {
 				ErrorConstants.ERR_ACCESSS_DENIED);
 	}
 
+	/**
+	 * @param CustomException
+	 * @return ParameterizedErrorDTO
+	 */
 	@ExceptionHandler(CustomException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	@ResponseBody
@@ -90,6 +122,10 @@ public class ExceptionTranslator {
 		return ex.getErrorDTO();
 	}
 
+	/**
+	 * @param ValidationException
+	 * @return VALIDATION_STATUS
+	 */
 	@ExceptionHandler(ValidationException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	@ResponseBody
@@ -99,6 +135,10 @@ public class ExceptionTranslator {
 				ErrorConstants.ERR_VALIDATION, fieldErrors);
 	}
 
+	/**
+	 * @param MaxUploadSizeExceededException
+	 * @return MAX_UPLOAD_SIZE_EXCEEDED
+	 */
 	@ExceptionHandler(MaxUploadSizeExceededException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	@ResponseBody
@@ -106,6 +146,10 @@ public class ExceptionTranslator {
 		return new ErrorDTO(ErrorConstants.ERR_VALIDATION_STATUS, ErrorConstants.ERR_MAX_UPLOAD_SIZE_EXCEEDED);
 	}
 
+	/**
+	 * @param MultipartException
+	 * @return MULTIPART_FAILURE
+	 */
 	@ExceptionHandler(MultipartException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	@ResponseBody
@@ -113,6 +157,10 @@ public class ExceptionTranslator {
 		return new ErrorDTO(ErrorConstants.ERR_VALIDATION_STATUS, ErrorConstants.ERR_MULTIPART_FAILURE);
 	}
 
+	/**
+	 * @param RuntimeException
+	 * @return RUNTIME_FAILURE
+	 */
 	@ExceptionHandler(RuntimeException.class)
 	@ResponseStatus(HttpStatus.SERVICE_UNAVAILABLE)
 	@ResponseBody
@@ -120,6 +168,10 @@ public class ExceptionTranslator {
 		return new ErrorDTO(ErrorConstants.ERR_RUNTIME_FAILURE_STATUS, ErrorConstants.ERR_RUNTIME_FAILURE);
 	}
 
+	/**
+	 * @param fieldErrors
+	 * @return field errors of validation failed fields.
+	 */
 	List<FieldErrorDTO> processFieldErrors(List<FieldError> fieldErrors) {
 		List<FieldErrorDTO> fieldErrorDtoList = new ArrayList<>();
 

@@ -2,8 +2,13 @@ package com.core.libraries.exceptionhandler;
 
 import java.io.Serializable;
 
-/*
- * Field Binding Error to be returned to client
+/**
+ * @author Bayvao Verma
+ *
+ */
+
+/**
+ * Field Binding Error to be returned to client *
  */
 public class FieldErrorDTO implements Serializable {
 

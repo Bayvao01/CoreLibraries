@@ -5,7 +5,7 @@
 
 	<parent>
 		<groupId>com.core.libraries</groupId>
-		<artifactId>CoreApplicationLibraries</artifactId>
+		<artifactId>CoreLibraries</artifactId>
 		<version>1.0.0.RELEASE</version>
 	</parent>
 

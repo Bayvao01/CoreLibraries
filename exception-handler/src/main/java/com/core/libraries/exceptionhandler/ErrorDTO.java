@@ -4,6 +4,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Bayvao Verma
+ *
+ */
 public class ErrorDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;

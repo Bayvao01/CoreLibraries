@@ -5,7 +5,7 @@
 
 	<parent>
 		<groupId>com.core.libraries</groupId>
-		<artifactId>CoreApplicationLibraries</artifactId>
+		<artifactId>CoreLibraries</artifactId>
 		<version>1.0.0.RELEASE</version>
 	</parent>
 
@@ -13,7 +13,7 @@
 	<packaging>jar</packaging>
 
 	<name>exception-handler</name>
-	<description>execption-handler project common base for handling exception across all project development.</description>
+	<description>Common exception-handler across all project.</description>
 
 	<!-- KINDLY ADD PROPERTIES INTO PARENT's POM AND USE HERE -->
 	<properties>
@@ -84,9 +84,6 @@
 			<version>${mockito-core.version}</version>
 			<scope>test</scope>
 		</dependency>
-
-
-
 	</dependencies>
 
 </project>

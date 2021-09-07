@@ -1,5 +1,9 @@
 package com.core.libraries.exceptionhandler;
 
+/**
+ * @author Bayvao Verma
+ *
+ */
 public final class ErrorConstants {
 
 	public static final int ERR_STATUS = 400;

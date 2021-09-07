@@ -2,6 +2,10 @@ package com.core.libraries.exceptionhandler;
 
 import java.io.Serializable;
 
+/**
+ * @author Bayvao Verma
+ *
+ */
 public class ParameterizedErrorDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;

@@ -15,12 +15,16 @@ import org.apache.commons.validator.routines.EmailValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/*
- * Validator implementation that provides support for validating any
- * object's simple, collection and object array properties for defined
- * validation rules such as: REQUIRED, EMPTY, LEN, MINLEN, MAXLEN, PATTERN, and
- * DATEPATTERN.
- * 
+/**
+ * @author Bayvao Verma
+ *
+ */
+
+/**
+ * Validator implementation that provides support for validating any object's
+ * simple, collection and object array properties for defined validation rules
+ * such as: REQUIRED, EMPTY, LEN, MINLEN, MAXLEN, PATTERN, and DATEPATTERN.
+ *
  */
 public class Validation {
 
@@ -232,7 +236,7 @@ public class Validation {
 
 	protected FieldValidationError validate(Object propertyValue, String propertyName, String validationName,
 			String parameter) {
-		
+
 		FieldValidationError errorMessage = null;
 		boolean isValid = true;
 		boolean appendParameter = true;

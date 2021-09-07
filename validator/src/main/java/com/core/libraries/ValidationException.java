@@ -2,6 +2,10 @@ package com.core.libraries;
 
 import java.util.List;
 
+/**
+ * @author Bayvao Verma
+ *
+ */
 public class ValidationException extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;
