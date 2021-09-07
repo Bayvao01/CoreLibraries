@@ -70,6 +70,7 @@ local.properties
 /log/
 */target/**
 */target/sonar/**
+/target/**
 ######################
 # Gradle
 ######################
