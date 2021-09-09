@@ -40,6 +40,7 @@
 		<module>exception-handler</module>
 		<module>validator</module>
 		<module>redis-caching</module>
+		<module>encrypt-decrypt</module>
 	</modules>
 
 
