@@ -64,7 +64,7 @@ public class ExceptionTranslator {
 	 * @return VALIDATION_STATUS
 	 */
 	@ExceptionHandler(MethodArgumentNotValidException.class)
-	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	@ResponseStatus(HttpStatus.EXPECTATION_FAILED)
 	@ResponseBody
 	public ErrorDTO processMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
 		BindingResult result = ex.getBindingResult();
@@ -78,7 +78,7 @@ public class ExceptionTranslator {
 	 * @return VALIDATION_STATUS
 	 */
 	@ExceptionHandler(BindException.class)
-	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	@ResponseStatus(HttpStatus.EXPECTATION_FAILED)
 	@ResponseBody
 	public ErrorDTO processBindException(BindException ex) {
 
@@ -116,7 +116,7 @@ public class ExceptionTranslator {
 	 * @return ParameterizedErrorDTO
 	 */
 	@ExceptionHandler(CustomException.class)
-	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	@ResponseStatus(HttpStatus.EXPECTATION_FAILED)
 	@ResponseBody
 	public ParameterizedErrorDTO processCustomException(CustomException ex) {
 		return ex.getErrorDTO();
@@ -127,7 +127,7 @@ public class ExceptionTranslator {
 	 * @return VALIDATION_STATUS
 	 */
 	@ExceptionHandler(ValidationException.class)
-	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	@ResponseStatus(HttpStatus.EXPECTATION_FAILED)
 	@ResponseBody
 	public ErrorDTO processValidationException(ValidationException ex) {
 		List<FieldErrorDTO> fieldErrors = processFieldValidationError(ex.getValidationErrors());
@@ -140,7 +140,7 @@ public class ExceptionTranslator {
 	 * @return MAX_UPLOAD_SIZE_EXCEEDED
 	 */
 	@ExceptionHandler(MaxUploadSizeExceededException.class)
-	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	@ResponseStatus(HttpStatus.EXPECTATION_FAILED)
 	@ResponseBody
 	public ErrorDTO processMaxUploadSizeExceededException(MaxUploadSizeExceededException ex) {
 		return new ErrorDTO(ErrorConstants.ERR_VALIDATION_STATUS, ErrorConstants.ERR_MAX_UPLOAD_SIZE_EXCEEDED);
@@ -151,7 +151,7 @@ public class ExceptionTranslator {
 	 * @return MULTIPART_FAILURE
 	 */
 	@ExceptionHandler(MultipartException.class)
-	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	@ResponseStatus(HttpStatus.EXPECTATION_FAILED)
 	@ResponseBody
 	public ErrorDTO processMultipartException(MultipartException ex) {
 		return new ErrorDTO(ErrorConstants.ERR_VALIDATION_STATUS, ErrorConstants.ERR_MULTIPART_FAILURE);
