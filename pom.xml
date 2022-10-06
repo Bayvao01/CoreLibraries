@@ -44,6 +44,7 @@
 		<module>redis-caching</module>
 		<module>encrypt-decrypt</module>
 		<module>logger</module>
+		<module>common-security-filter</module>
 	</modules>
 
 
