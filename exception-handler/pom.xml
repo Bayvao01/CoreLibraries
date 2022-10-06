@@ -25,7 +25,7 @@
 		<dependency>
 			<groupId>com.core.libraries</groupId>
 			<artifactId>validator</artifactId>
-			<version>1.0.0.RELEASE</version>
+			<version>${parent.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
