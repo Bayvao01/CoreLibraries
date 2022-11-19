@@ -43,6 +43,8 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
         check-latest: true
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
 
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
