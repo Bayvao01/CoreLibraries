@@ -56,10 +56,11 @@ jobs:
         # Details on CodeQL's query packs refer to : https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs
         # queries: security-extended,security-and-quality
 
-    - uses: s4u/maven-settings-action@v2.8.0
+    - name: maven-settings-xml-action
+      uses: whelk-io/maven-settings-xml-action@v20
       with:
-        servers: |
-          [{
+        servers: >
+         [{
             "id": "packagecloud.release",
             "password": "${{ secrets.PACKAGECLOUDPASSWORD }}"
           },
@@ -67,6 +68,14 @@ jobs:
             "id": "packagecloud.snapshot",
             "password": "${{ secrets.PACKAGECLOUDPASSWORD }}"
           }]
+        mirrors: >
+         [{
+            "id": "maven-default-http-blocker",
+            "mirrorOf": "external:http:*",
+            "name": "Pseudo repository to mirror external repositories initially using HTTP",
+            "url": "http://0.0.0.0/",
+            "blocked": "true"
+         }]
 
     # Autobuild attempts to build any compiled languages  (C/C++, C#, Go, or Java).
     # If this step fails, then you should remove it and run the build manually (see below)
